@@ -1,11 +1,13 @@
-from modelo.item_compra import ItemCompra
+from tiendalibros.modelo.item_compra import ItemCompra
+from tiendalibros.modelo.libro import Libro
+
 class CarroCompras:
     # Defina metodo inicializador __init__(self)
     def __init__(self):
         self.item: list[ItemCompra] = []
     
     # Defina el metodo agregar_item
-    def agregar_item(self, libro, cantidad_libro):
+    def agregar_item(self, libro: Libro, cantidad_libro: int):
         nuevo_item: ItemCompra = ItemCompra(libro, cantidad_libro)
         self.item.append(nuevo_item)
         return nuevo_item
@@ -20,5 +22,3 @@ class CarroCompras:
     # Defina el metodo quitar_item
     def quitar_item(self, isbn):
         self.item = [x for x in self.item if isbn != x.libro.isbn]
-        return
-    
